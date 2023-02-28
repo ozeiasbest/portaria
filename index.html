@@ -1,73 +1,75 @@
+<!DOCTYPE html>
+
+
+
 <script src="java.js"></script>
 
 
-<table id="lista" class="degrade-tbl">
-  <thead>
-    <tr>
-      <th>
-        <div>Pesquisa</div><center>
-        <div><input id="filtro-nome" /></div></center>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-    
-    <br>
-    
-      <td><a href="">101 B1 
-      ozeias de melo veira, 
-      mayara quirino - QRU-x341
-      </a></td>
-      
-      <br>
-      </tr>
-      
-      
-    <tr> 
-      <td><a href="">102 B2 <br>
-      Esdras de melo veira, 
-      leticia ximenes - lts-3326
-      </a></td>
-     
-       </tr>
-    <tr>
-    
-    
-      <td><a href="">202 B2 Davi de melo  - </a></td>
 
-      
-         </tr>
-         
-         <tr>
- 
-      <td><a href="">204 B2 Douglas   </a></td>
+<html lang="pt-">
 
-         </tr>
-         
-         
-          <br><tr>
- 
-      <td><a href="">606 B2 yara   </a></td>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="buscador.css">
 
-        <br> </tr>
-           <br><tr>
- 
-      <td><a href="">905 B1 yara   </a></td>
 
-        <br> </tr>
-        
-        <br><tr>
- 
-      <td><a href="">203 B2 Denis  </a></td>
 
-        <br> </tr>
-         
-    <tr>
-      <td><a href="">101</a></td>
-      
-      
-      
-    </tr>
-  </tbody>
-</table>
+    <title>Buscador</title>
+</head>
+
+<body>
+    <div class="buscador">
+        <form action="" method="submit" class="pesquisa">
+            <input type="texte" name="buscador" value="" placeholder="O que vamos ver hoje?" id="buscar"
+                onkeyup="pesquisa()">
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+      <div class="filmes">
+        <ul id="disponiveis">
+            <li>
+                <a href="#"> 404B - Robson </a></a>
+            </li>
+            <li>
+                <a href="#">503A Bethy</a>
+            </li>
+            <li>
+                <a href="#">203B - Bianca , Thiago, QRU-5690 </a>
+            </li>
+            <li>
+                <a href="#">Joelson 94</a>
+            </li>
+            <li>
+                <a href="#">Legalmente Loira</a>
+            </li>
+            <li>
+                <a href="#">Jurassic Park</a>
+            </li>
+            <li>
+                <a href="#">O pianista</a>
+            </li>
+            <li>
+                <a href="#">Imperio do Sol</a>
+            </li>
+            <li>
+                <a href="#">13 Horas</a>
+            </li>
+            <li>
+                <a href="#"> Alladin</a>
+            </li>
+            <li>
+                <a href="#"> Speed Racer</a>
+            </li>
+            <li>
+                <a href="#"> Circulo de Fogo</a>
+            </li>
+        </ul>
+    </div>
+    <script src="pesquisa.js"></script>
+
+</body>
+
+</html>
