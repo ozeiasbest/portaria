@@ -1,10 +1,24 @@
-const input = document.getElementById('filtro-nome');
-const trs = [...document.querySelectorAll('#lista tbody tr')];
+function pesquisa() {
+    var busca;
+    var filtro;
+    var ul;
+    var li;
+    var a;
+    var i;
+    busca = document.getElementById("buscar");
+    filtro = busca.value.toUpperCase();
+    ul = document.getElementById("disponiveis");
+    li = ul.getElementsByTagName("li");
 
-input.addEventListener('input', () => {
-  const search = input.value.toLowerCase();
-  trs.forEach(el => {
-    const matches = el.textContent.toLowerCase().includes(search);
-    el.style.display = matches ? 'block' : 'none';
-  });
-});
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        if (a.innerHTML.toUpperCase().indexOf(filtro) > -1) {
+            li[i].style.display = "";
+        }
+
+
+          else {
+            li[i].style.display = "none";
+        }
+    }
+}
