@@ -1,1321 +1,153 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<title>Portaria Online</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login </title>
+
+    <style>
+
+        *{
+            box-sizing: border-box;
+        }
+
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: linear-gradient(45deg, cyan, yellow);
+        }
+
+div{
+            background-color: rgba(0, 0, 0, 0.9);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            padding: 80px;
+            border-radius: 15px;
+            color: #fff;
+        }
+
+        form{
+            width: 400px;
+            margin: 80px auto;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.9);
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            padding: 80px;
+            border-radius: 15px;
+            color: #fff;
+        }
+
+        input{
+            display: block;
+            margin: 20px auto;
+            width: 250px;
+            height: 40px;
+        }
+
+    </style>
 
 
 
-<link rel="shortcut icon" href="a198cd0c_e2f0_4c99_ba51_342624a24db9_WP4_icon.ico" type="image/x-icon"/>
-<link href = "https://fonts.googleapis.com/css?family=Nunito+Sans:400,900&display=swap" rel="stylesheet">
-<style>
-* {
-  box-sizing: border-box;
-}
-body,#artInput{text-align: center;}
-#artInput {
-  background-image: url('');
-  background-position: 10px 10px;;
-  background-repeat: no-repeat;
-  background-size: 25px;
-  width: 60%;
-  font-size: 16px;
-  padding: 12px 20px 12px 40px;
-  border: 1px solid #ddd;
-  margin-bottom: 12px;
-  border-radius: 25px;
-}
-#artInput:focus {
-  outline:none
-}
-#artTable {
-  border-collapse: collapse;
-  width: 85%;
-  border: 1px solid #ddd;
-  font-size: 18px;
-  margin-bottom:40px;
-}
-#artTable th, #artTable td {
-  text-align: left;
-  padding: 12px;
-  text-align: center;
-
-}
-#artTable tr {
-  border-bottom: 1px solid #ddd;
-
-}
-#artTable tr.header, #artTable tr:hover {
-  background-color: #f1f1f1;
-
-}
-a {
-  color: #f56642;
-}
-
-h2, h1, p {
-  font-family: 'Nunito Sans', sans-serif;
-}
-h1:hover {
-  animation-name: artshadow;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: both;
-  animation-duration: 0.5s;
-  animation-delay: 0.1s;
-}
-
-@keyframes artshadow {
-  from {}
-  to {text-shadow: 2px 2px 5px black;}
-}
-h1 {
-  color: #228B22;
-  transition: 0.3s;
-}
-
-}
-h2 {
-  color: #228B22;
-  transition: 0.3s;
-}
 
 
 
-div {
-  background: rgba(0, 128, 0, 0.2) /* Green background with 30% opacity */
-}
 
-</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </head>
 <body>
+    
 
+    <form>
 
-<h1>PORTARIA </h1>
-<h2>Condominio Vivenda Verde</h2>
 
+        <h3>Portaria online</h3>
+<center>
+        <input type="text" placeholder="Login" id="login">
+        <input type="password" placeholder="Senha" id="senha">
+        <input type="submit" onclick="logar(); return false">
+           </center>
 
+    </form>
 
-<div class="centerenter">
-<input type="text" id="artInput" onkeyup="artFunction()" placeholder="Nome, Apartamento, veiculo, vaga..." title="Work search">
-</div>
-<div class="tablesearch">
-<table id="artTable" align="center">
-<tr class="header">
 
-<th style="width:25%">APT</th>
-<th style="width:25%">NOME</th>
-<th style="width:25%">PLACA</th>
-<th style="width:25%">MODELO</th>
-<th style="width:25%">VAGA</th>
 
 
-</tr>
 
 
 
 
 
-<tr>
-<td>101A</a></td>
 
-<td>RODRIGO CATARRI LIMA DE MELO<br>
-</td>
 
-<td>KND9B19</td>
-<td>PARTNER BRANCO</td>
-<td>M227</td>
-</tr>
 
 
 
 
+    <script>
 
-<tr>
-<td>102A</a></td>
 
-<td>LUIZ ENRIQUE ALVES DO CARMO<br>
-</td>
+        function logar(){
 
-<td>PSM9A26</td>
-<TD>     </TD>
-<td>M103</td>
-</tr>
+            var login = document.getElementById('login').value;
+            var senha = document.getElementById('senha').value;
 
+            if(login == "portaria" && senha == "123"){
+                alert('Sucesso');
+            
 
+                location.href = "01.html";
+            }else{
+                alert('Usuario ou senha incorretos');
+            }
 
+        }
 
+    </script>
 
 
-<tr>
-<td>103A</a></td>
 
-<td>WINTON LUSQUINHOS MACHADO<br>
-</td>
 
-<td>0000</td>
-<TD>     </TD>
-<td>M305</td>
-</tr>
+<script>
 
 
+        function logar(){
 
+            var login = document.getElementById('login').value;
+            var senha = document.getElementById('senha').value;
 
+            if(login == "ozeias" && senha == "3414"){
+                alert('Bem Vindo ozéias');
+            
 
-<tr>
-<td>104A</a></td>
+                location.href = "01.html";
+            }else{
+                alert('Usuario ou senha incorretos');
+            }
 
-<td>MARCELO RICARDO GUEDES<br>
-</td>
+        }
 
-<td>0000</td>
-<TD>     </TD>
-<td>M352</td>
-</tr>
+    </script>
 
 
 
 
-<tr>
-<td>105A</a></td>
-
-<td>MARIA DO CARMO COSTA<br>
-</td>
-
-<td>LPA9C61</td>
-<TD>     </TD>
-<td>M348</td>
-</tr>
-
-
-
-<tr>
-<td>106A</a></td>
-
-<td>TATIANA LIRADOS SANTOS<br>
-</td>
-
-<td>0000</td>
-<TD>     </TD>
-<td>M251</td>
-</tr>
-
-
-
-
-
-
-<tr>
-<td>107A</a></td>
-
-<td>MARIO EDUARDO DOS SANTOS NOGUEIRA <br>
-</td>
-
-<td>KXB7319</td>
-<TD>     </TD>
-<td>M318</td>
-</tr>
-
-
-
-
-
-<tr>
-<td>108A</a></td>
-
-<td>VITOR CORALLARES DE CARVALHO<br>
-</td>
-
-<td>KRA4864</td>
-<TD>     </TD>
-<td>M347</td>
-</tr>
-
-
-
-
-<tr>
-<td>109A</a></td>
-
-<td>MARJORIE NAZARE DE QUEIROZ DE ALMEIDA<br>
-</td>
-
-<td>KVN6314</td>
-<TD>     </TD>
-<td>M350</td>
-</tr>
-
-
-
-<tr>
-<td>110A</td>
-
-<td> DOUGLAS  <br><BR> ANDRESSA 
-</td>
-
-<td>PUW-3C09 </td>
-<TD>GOL TL MB S  </TD>
-<td>M243</td>
-</tr>
-
-
-
-<tr>
-<td>201A</a></td>
-
-<td>ROBERTO DE CARVALHO <br>
-</td>
-
-<td>KRV8395</td>
-<TD>     </TD>
-<td>M302</td>
-</tr>
-
-
-
-
-<tr>
-<td>202A</a></td>
-
-<td>   GENAINA FERNANDES DO VALE <br>
-</td>
-
-<td> QPR1667   </td>
-<TD>     </TD>
-<td> M325   </td>
-</tr>
-
-
-
-<tr>
-<td>203A</a></td>
-
-<td>   EUGENIO CRUZ CARLONI <br>
-</td>
-
-<td> RIQ5D78   </td>
-<TD>     </TD>
-<td> M344   </td>
-</tr>
-
-
-<tr>
-<td>204A</a></td>
-
-<td>   MARIA DEL PILAR MACHADO MORCILIO <br>
-</td>
-
-<td> 0000   </td>
-<TD>     </TD>
-<td> M356   </td>
-</tr>
-
-
-
-
-<tr>
-<td>205A</a></td>
-
-<td>   ANA LUIZA MOREIRA LEITE  <br>
-</td>
-
-<td> KVF1533   </td>
-<TD>     </TD>
-<td> M236   </td>
-</tr>
-
-
-
-
-
-
-<tr>
-<td>206A</a></td>
-
-<td>   GERSON VIEIRA DE SOUZA  <br>
-</td>
-
-<td> 0000   </td>
-<TD>     </TD>
-<td> M331   </td>
-</tr>
-
-
-
-
-
-
-<tr>
-<td>207A</a></td>
-
-<td>   FELIPE TORRES M. DE OLIVEIRA <br>
-</td>
-
-<td> KUX6595   </td>
-<TD>     </TD>
-<td> M360   </td>
-</tr>
-
-
-
-
-
-
-
-<tr>
-<td>208A</a></td>
-
-<td>   RAMON <br>
-</td>
-
-<td> KLY5041   </td>
-<TD>     </TD>
-<td> M104   </td>
-</tr>
-
-
-
-
-
-
-
-<tr>
-<td>209A</a></td>
-
-<td>   ELISA NEVES DA COSTA   <br>
-</td>
-
-<td> 0000   </td>
-<TD>     </TD>
-<td> M309   </td>
-</tr>
-
-
-
-
-
-
-<tr>
-<td>210A</a></td>
-
-<td>   MARCELO JOSE DA SILVA COSTA  <br>
-</td>
-
-<td> LSS7596   </td>
-<TD>     </TD>
-<td> M307   </td>
-</tr>
-
-
-
-
-
-
-
-<tr>
-<td>301A</a></td>
-
-<td>   DEIDIMAR APARECIDA DIAS <br>
-</td>
-
-<td> KZF6265   </td>
-<TD>     </TD>
-<td> M121   </td>
-</tr>
-
-
-
-
-
-
-
-
-<tr>
-<td>302A</a></td>
-
-<td>   CLAUDIA MARIA <br>
-</td>
-
-<td> KPE9589   </td>
-<TD>     </TD>
-<td> M222   </td>
-</tr>
-
-
-
-
-
-<tr>
-<td>303A</a></td>
-
-<td>   PATRICIA FERNANDES ALVES LUCIANO <br>
-</td>
-
-<td> RQ08H05   </td>
-<TD>     </TD>
-<td> M336   </td>
-</tr>
-
-
-
-
-
-
-<tr>
-<td>304A</a></td>
-
-<td>   VINICIUS <br>
-</td>
-
-<td> KYZ2944   </td>
-<TD>     </TD>
-<td> M211  </td>
-</tr>
-
-
-
-
-
-
-<tr>
-<td>305A</a></td>
-
-<td>  FELIPPE DE AQUIM PAIM  <br>
-</td>
-
-<td> 0000   </td>
-<TD>     </TD>
-<td> M217   </td>
-</tr>
-
-
-
-
-
-
-<tr>
-<td>306A</a></td>
-
-<td>   CRISTIANE FARIAS DOS SANTOS  <br>
-</td>
-
-<td> 0000   </td>
-<TD>     </TD>
-<td> M238   </td>
-</tr>
-
-
-
-
-
-
-<tr>
-<td>307A</a></td>
-
-<td>   0000 <br>
-</td>
-
-<td> 0000   </td>
-<TD>     </TD>
-<td> M338   </td>
-</tr>
-
-
-
-
-
-
-
-<tr>
-<td>308A</a></td>
-
-<td>   VANESSA BLANCO CHAVEZ  <br>
-</td>
-
-<td> KOR7263   </td>
-<TD>     </TD>
-<td> M339   </td>
-</tr>
-
-
-
-
-
-
-
-<tr>
-<td>309A</a></td>
-
-<td>   ANDRE MONTEIRO FONSECA <br>
-</td>
-
-<td> FIE3F65   </td>
-<TD>     </TD>
-<td> M3/26   </td>
-</tr>
-
-
-
-
-
-
-<tr>
-<td>310A</a></td>
-
-<td>   ADY CARLOS  <br>
-</td>
-
-<td> OJR8I31   </td>
-<TD>     </TD>
-<td> M334   </td>
-</tr>
-
-
-
-
-<tr>
-<td>401A</a></td>
-
-<td>   FELIPE CARLOS C. TRINDADE  <br>
-</td>
-
-<td> LKJ7354   </td>
-<TD>     </TD>
-<td> M115   </td>
-</tr>
-
-
-
-
-
-<tr>
-<td>402A</a></td>
-
-<td>   LUIZ <br>
-</td>
-
-<td> 0000   </td>
-<TD>     </TD>
-<td> M342  </td>
-</tr>
-
-
-
-
-<tr>
-<td>403A</a></td>
-
-<td>   SEBASTIÃO SOARES DE LIMA  <br>
-</td>
-
-<td> 0000   </td>
-<TD>     </TD>
-<td> M106   </td>
-</tr>
-
-
-
-
-<tr>
-<td>404A</a></td>
-
-<td>   KEIKO MANABE   <br>
-</td>
-
-<td> LRT7038   </td>
-<TD>     </TD>
-<td> M122   </td>
-</tr>
-
-
-
-
-<tr>
-<td>405A</a></td>
-
-<td>   GABRILE IAN JACOBSON DIAS  <br>
-</td>
-
-<td> 0000   </td>
-<TD>     </TD>
-<td> M349  </td>
-</tr>
-
-
-
-
-<tr>
-<td>406A</a></td>
-
-<td>   CESAR LUIS SILVA  <br>
-</td>
-
-<td> KWX5760   </td>
-<TD>     </TD>
-<td> M357   </td>
-</tr>
-
-
-
-<tr>
-<td>407A</a></td>
-
-<td>   JOSE RENATO DE MELLO ERBETTA  <br>
-</td>
-
-<td> 0000   </td>
-<TD>     </TD>
-<td> M361   </td>
-</tr>
-
-
-
-
-<tr>
-<td>408A</a></td>
-
-<td>   ADELINA  <br>
-</td>
-
-<td> RNF7H08   </td>
-<TD>     </TD>
-<td> M324   </td>
-</tr>
-
-
-
-<tr>
-<td>409A</a></td>
-
-<td>   WENDELL PEREIRA FEITOSA DE PAIVA  <br>
-</td>
-
-<td> LSA2C15   </td>
-<TD>     </TD>
-<td> M221   </td>
-</tr>
-
-
-
-
-
-<tr>
-<td>410A</a></td>
-
-<td>   ANTONIO LOPES DE SOUZA  <br>
-</td>
-
-<td> KWY9079   </td>
-<TD>     </TD>
-<td> M105   </td>
-</tr>
-
-
-
-<tr>
-<td>501A</a></td>
-
-<td>   REGINA CUKIER DE OLIVEIRA   <br>
-</td>
-
-<td> KRK4E87   </td>
-<TD>     </TD>
-<td> M343   </td>
-</tr>
-      
-
-
-
-
-<tr>
-<td>502A</a></td>
-
-<td>   AIDA REGINA R. W. CORREIA  <br>
-</td>
-
-<td> LPI0234   </td>
-<TD>     </TD>
-<td> M125   </td>
-</tr>
-
-
-
-
-
-
-
-<tr>
-<td>503A</a></td>
-
-<td>   OSEAS DE LIMA DA SILVA  <br>
-</td>
-
-<td> KOE9268   </td>
-<TD>     </TD>
-<td> M229   </td>
-</tr>
-
-
-
-
-
-<tr>
-<td>504A</a></td>
-
-<td>   MARIA EMILIA SILVA DAS NEVES  <br>
-</td>
-
-<td> LUR8C79   </td>
-<TD>     </TD>
-<td> M337  </td>
-</tr>
-
-
-
-
-<tr>
-<td>505A</a></td>
-
-<td>   MARIO JORGE MARQUES BAPTISTA LEAO  <br>
-</td>
-
-<td> RJO4578   </td>
-<TD>     </TD>
-<td> M312  </td>
-</tr>
-
-
-
-
-<tr>
-<td>506A</a></td>
-
-<td>   JULIANA   <br>
-</td>
-
-<td> KYU8383   </td>
-<TD>     </TD>
-<td> M1/19   </td>
-</tr>
-
-
-
-
-<tr>
-<td>507A</td>
-
-<td>   MARIA ROSANGELA MACHADO FERNANDES  <br>
-</td>
-
-<td> GYL3D83   </td>
-<TD>     </TD>
-<td> M120   </td>
-</tr>
-
-
-
-
-
-<tr>
-
-<td>   508A </td>
-<td>  WILIAN F. MANSILIO   <br>    </td>
-<td>     </td>
-<TD>     </TD>
-<td>   M304  </td>
-</tr>
-
-
-
-
-
-<tr>
-
-<td>   509A </td>
-<td>   MARCO ANTONIO CORTEZ CARDOZO <br>    </td>
-<td>   KRN7545  </td>
-<TD>     </TD>
-<td>   M311  </td>
-
-</tr>
-
-
-
-
-
-
-<tr>
-
-<td>   510A </td>
-<td>   ANDERSON CARVALHO DE SOUZA  <br>    </td>
-<td>   CQI9570  </td>
-<TD>     </TD>
-<td>    M206 </td>
-
-</tr>
-
-
-
-
-<tr>
-
-<td>   601A </td>
-<td>  FECHADO  <br>    </td>
-<td>     </td>
-<TD>     </TD>
-<td>  M111   </td>
-
-</tr>
-
-
-
-<tr>
-
-<td>   602A </td>
-<td>   ANDREA M. SOARES <br>    </td>
-<td>     </td>
-<TD>     </TD>
-<td>   M215  </td>
-
-</tr>
-
-
-
-<tr>
-
-<td>  603A  </td>
-<td>  HOROLDO MAYRINK DE SOUZA   <br> <BR> IVONE</td>
-<td>     </td>
-<TD>     </TD>
-<td>   M101  </td>
-
-</tr>
-
-
-
-
-<tr>
-
-<td>  604A  </td>
-<td>   MARILENE <br>    </td>
-<td>     </td>
-<TD>     </TD>
-<td>   M316  </td>
-
-</tr>
-
-
-
-<tr>
-
-<td>  605A  </td>
-<td>   FECHADO <br>    </td>
-<td>     </td>
-<TD>     </TD>
-<td>  M319   </td>
-
-</tr>
-
-
-
-
-<tr>
-
-<td>  606A  </td>
-<td>   GUILHERME SANTANA DA SILVA DIAS <br>    </td>
-<td>   KQU2817  </td>
-<TD>     </TD>
-<td>   M240  </td>
-
-</tr>
-
-
-
-<tr>
-
-<td>   607A </td>
-<td>  MARCOS HENRIQUE MEDEIROS DE AZEVEDO  <br>    </td>
-<td>    BEZ8E43 </td>
-<TD>     </TD>
-<td>   M216  </td>
-
-</tr>
-
-
-
-
-<tr>
-
-<td>   608A </td>
-<td>  ALEXANDRE DE OLIVEIRA GOMES DA SILVA    <br>    </td>
-<td>  KYK4294   </td>
-<TD>     </TD>
-<td>  M228   </td>
-
-</tr>
-
-
-
-<tr>
-
-<td>  609A  </td>
-<td>  ALEXANDRA  <br>    </td>
-<td>     </td>
-<TD>     </TD>
-<td>    M359 </td>
-
-</tr>
-
-
-
-
-<tr>
-
-<td>  610A  </td>
-<td>  PAULA VANESSA  <br>    </td>
-<td>    LLS0769 </td>
-<TD>     </TD>
-<td>   M234  </td>
-
-</tr>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<tr>
-</tr>
-</table>
-</div>
-
-
-
-
-
-<script>function artFunction() {
-  // Declare starting variables
-  var input = document.getElementById("artInput");
-  var filter = input.value.toUpperCase();
-  var table = document.getElementById("artTable");
-  var trs = table.tBodies[0].getElementsByTagName("tr");
-  // Loop through rows
-  for (var i = 0; i < trs.length; i++) {
-    // Define the cells
-    var tds = trs[i].getElementsByTagName("td");
-    // hide the row
-    trs[i].style.display = "none";
-    // loop through row cells
-    for (var i2 = 0; i2 < tds.length; i2++) {
-      // if there's a match
-      if (tds[i2].innerHTML.toUpperCase().indexOf(filter) > -1) {
-        // show the row
-        trs[i].style.display = "";
-        // skip to the next row
-        continue;
-      }
-    }
-  }
-}
-</script>
 </body>
 </html>
