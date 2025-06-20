@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>condominio spazio regency </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            margin: auto;
+        }
+        h1 {
+            color: #0056b3;
+            text-align: center;
+        }
+        #search-container {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        #search-input {
+            width: 80%;
+            padding: 25px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        #data-container {
+            margin-top: 10px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        .item {
+            background-color: #e9ecef;
+            margin-bottom: 25px; /* Aumentei a margem para separar melhor os itens */
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #dee2e6;
+            line-height: 1.0;
+        }
+        .item strong {
+            color: #007bff;
+        }
+        .error-message {
+            color: red;
+            text-align: center;
+            font-weight: bold;
+        }
+        .loading-message {
+            text-align: center;
+            font-style: italic;
+            color: #666;
+        }
+        /* Estilo para os separadores */
+        .item-separator {
+            margin: 5px 0;
+            border-bottom: 1px dashed #bbb; /* Linha tracejada para separar campos */
+            padding-bottom: 2px;
+        }
+        /* Estilo para o último separador dentro de um item, para não aparecer */
+        .item-separator:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Consuta de dados - SPAZIO </h1>
+        <div id="search-container">
+            <input type="text" id="search-input" placeholder="Buscar em todos os campos...">
+        </div>
+        <div id="data-container">
+            <p class="loading-message">Carregando dados...</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const apiUrl = 'https://script.google.com/macros/s/AKfycbzJGxfP9bkCkwe45M1k4cmBfizgwYPVtTbJS5GmMiKPCPVcojnBqOVhkr-TN9fHfMA/exec';
+            const dataContainer = document.getElementById('data-container');
+            const searchInput = document.getElementById('search-input');
+            let allData = [];
+
+            async function fetchData() {
+                try {
+                    const response = await fetch(apiUrl);
+
+                    if (!response.ok) {
+                        throw new Error(`Erro HTTP! Status: ${response.status}. Verifique se a URL da API está correta.`);
+                    }
+
+                    const data = await response.json();
+                    
+                    allData = Array.isArray(data) ? data : (data.data || data.records || []); 
+                    
+                    if (allData.length === 0) {
+                        dataContainer.innerHTML = '<p class="error-message">Nenhum dado encontrado. Verifique se sua planilha contém dados ou se a API está retornando algo.</p>';
+                        return;
+                    }
+                    displayData(allData);
+                } catch (error) {
+                    console.error('Erro ao buscar os dados:', error);
+                    dataContainer.innerHTML = `<p class="error-message">Erro ao carregar os dados: ${error.message}. <br>Por favor, verifique se a URL da API está correta e se a <a href="https://developers.google.com/apps-script/guides/web-apps#deploy_the_script_as_a_web_app" target="_blank">implantação do Google Apps Script</a> está configurada para "Qualquer pessoa".</p>`;
+                }
+            }
+
+            // Função para exibir os dados com os separadores
+            function displayData(itemsToDisplay) {
+                dataContainer.innerHTML = '';
+
+                if (itemsToDisplay && itemsToDisplay.length > 0) {
+                    itemsToDisplay.forEach(item => {
+                        const itemDiv = document.createElement('div');
+                        itemDiv.classList.add('item');
+
+                        // --- Mapeamento e agrupamento dos campos desejados ---
+                        // **IMPORTANTE:** Verifique se as chaves (nomes das colunas) aqui
+                        // correspondem EXATAMENTE ao que sua Google Apps Script API está retornando.
+                        // Use as Ferramentas do Desenvolvedor (F12 > Network > Response) para confirmar.
+
+                        const blocoApt = item["BLOCO e APT"] || item["Bloco e Apt"] || item.BLOCOEAPT || '';
+                        const nomes = item["Nomes"] || item.Nomes || '';
+                        const placa = item["PLACA CARRO - MODELO 🚘"] || item["Placa"] || item.PLACA_CARRO_MODELO || '';
+                        const carroModelo = item["Carro - modelo 🚘"] || item["Modelo Carro"] || item.MODELO_CARRO || '';
+                        const adesivoIdentificacao = item["ADESIVO DE IDENTIFICAÇÃO"] || item["Adesivo Identificacao"] || item.ADESIVO_IDENTIFICACAO || '';
+                        const observacoes = item["Observações 📋"] || item["Observacoes Gerais"] || item.OBSERVACOES || '';
+                        const telefone = item["Telefone 📞"] || item["Telefone de Contato"] || item.TELEFONE || '';
+                        const obsVagasAlugadas = item["OBS VAGAS ALUGADAS"] || item["Vagas Alugadas Observacoes"] || item.OBS_VAGAS_ALUGADAS || '';
+
+                        // Campos agrupados com base na sua solicitação
+                        const groupedFields = [
+                            { 
+                                label: "BLOCO e APT  ", 
+                                value: blocoApt, 
+                                display: String(blocoApt).trim() !== '' 
+                            },
+                            { 
+                                label: "Nomes 👥 ", 
+                                value: nomes, 
+                                display: String(nomes).trim() !== '' 
+                            },
+                            { 
+                                label: "Placa / Carro e modelo 🚗 ", 
+                                value: `${String(placa).trim()}${String(carroModelo).trim() ? ' / ' + carroModelo : ''}`, 
+                                display: String(placa).trim() !== '' || String(carroModelo).trim() !== '' 
+                            },
+                            { 
+                                label: "ADESIVO DE IDENTIFICAÇÃO", 
+                                value: adesivoIdentificacao, 
+                                display: String(adesivoIdentificacao).trim() !== '' 
+                            },
+                            { 
+                                label: "Observações 📋", 
+                                value: observacoes, 
+                                display: String(observacoes).trim() !== '' 
+                            },
+                            { 
+                                label: "Telefone 📞", 
+                                value: telefone, 
+                                display: String(telefone).trim() !== '' 
+                            },
+                            { 
+                                label: "OBS VAGAS ALUGADAS", 
+                                value: obsVagasAlugadas, 
+                                display: String(obsVagasAlugadas).trim() !== '' 
+                            }
+                        ];
+
+                        let itemContent = '';
+                        let hasVisibleContent = false;
+
+                        groupedFields.forEach((field, index) => {
+                            if (field.display) { // Só adiciona se houver valor para exibir
+                                hasVisibleContent = true;
+                                itemContent += `<p><strong>${field.label}:</strong> ${field.value}</p>`;
+                                // Adiciona o separador, exceto após o último campo visível
+                                if (index < groupedFields.length -1 && 
+                                    groupedFields.slice(index + 1).some(f => f.display)) {
+                                    itemContent += `<div class="item-separator"></div>`;
+                                }
+                            }
+                        });
+
+                        // Se não houver nenhum campo com conteúdo visível
+                        if (!hasVisibleContent) {
+                            itemDiv.innerHTML = '<p>Este item não possui dados relevantes para exibição.</p>';
+                        } else {
+                            itemDiv.innerHTML = itemContent;
+                        }
+                        
+                        dataContainer.appendChild(itemDiv);
+                    });
+                } else {
+                    dataContainer.innerHTML = '<p>Nenhum resultado encontrado para a busca.</p>';
+                }
+            }
+
+            // Função auxiliar para formatar os nomes das chaves (se necessário, para outros campos)
+            function formatLabel(key) {
+                return key
+                    .replace(/([A-Z])/g, ' $1')
+                    .replace(/_/g, ' ')
+                    .trim()
+                    .replace(/\b\w/g, char => char.toUpperCase());
+            }
+
+            // Função para filtrar os dados
+            function filterData() {
+                const searchTerm = searchInput.value.toLowerCase();
+
+                if (searchTerm.trim() === '') {
+                    displayData(allData);
+                    return;
+                }
+
+                const filteredItems = allData.filter(item => {
+                    for (const key in item) {
+                        if (item.hasOwnProperty(key)) {
+                            const value = String(item[key]).toLowerCase();
+                            if (value.includes(searchTerm)) {
+                                return true;
+                            }
+                        }
+                    }
+                    return false;
+                });
+
+                displayData(filteredItems);
+            }
+
+            searchInput.addEventListener('input', filterData);
+            fetchData();
+        });
+    </script>
+</body>
+</html>
